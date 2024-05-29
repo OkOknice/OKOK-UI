@@ -1,0 +1,17 @@
+// 该文件主要是负责定义全局的样式变量，例如颜色、字体大小等等
+
+// 主题色
+$colors: (
+  primary: #409eff,
+  success: #67c23a,
+  warning: #e6a23c,
+  danger: #f56c6c,
+  info: #909399,
+);
+
+// 全局加入主题颜色
+:root {
+  @each $var, $value in $colors {
+    --ok--color--#{$var}: #{$value};
+  }
+}

@@ -1,0 +1,10 @@
+// 引入 tailwindcss 样式
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
+
+// 引入全局样式
+@import './styles/var.scss';
+
+// 引入组件样式
+@import './packages/button/src/styles/button.scss';
