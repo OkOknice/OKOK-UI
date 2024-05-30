@@ -1,13 +1,139 @@
-// @import '../../../styles/variable.scss';
-@use './button-config.scss';
-@import './button-base.scss';
+// 首先针对这个样式类里面，定义了一系列的样式变量
+.ok-button {
+  --ok-button-font-weight: var(--ok-font-weight-primary);
+  --ok-button-border-color: var(--ok-border-color);
+  --ok-button-bg-color: var(--ok-fill-color-blank);
+  --ok-button-text-color: var(--ok-text-color-regular);
+  --ok-button-disabled-text-color: var(--ok-disabled-text-color);
+  --ok-button-disabled-bg-color: var(--ok-fill-color-blank);
+  --ok-button-disabled-border-color: var(--ok-border-color-light);
+  --ok-button-hover-text-color: var(--ok-color-primary);
+  --ok-button-hover-bg-color: var(--ok-color-primary-light-9);
+  --ok-button-hover-border-color: var(--ok-color-primary-light-7);
+  --ok-button-active-text-color: var(--ok-button-hover-text-color);
+  --ok-button-active-border-color: var(--ok-color-primary);
+  --ok-button-active-bg-color: var(--ok-button-hover-bg-color);
+  --ok-button-outline-color: var(--ok-color-primary-light-5);
+  --ok-button-active-color: var(--ok-text-color-primary);
+}
 
-.s-btn {
-  @include button-base;
-  // 导入type相关的样式
-  @include button-variant(button-config.$type);
-  // 导入 size 的相关样式
-  @include button-variant(button-config.$size);
-  // 导入hover 的相关样式
-  @include button-variant(button-config.$pseudo, true);
+.ok-button {
+  // 接下来再来书写基本的样式
+  display: inline-block;
+  line-height: 1;
+  white-space: nowrap;
+  cursor: pointer;
+  height: 40px;
+  background-color: var(--ok-button-bg-color);
+  border: var(--ok-border);
+  border-color: var(--ok-button-border-color);
+  color: var(--ok-button-text-color);
+  appearance: none;
+  text-align: center;
+  box-sizing: border-box;
+  outline: none;
+  margin: 0;
+  transition: 0.1s;
+  font-weight: var(--ok-button-font-weight);
+  user-select: none;
+  vertical-align: middle;
+  padding: 12px 20px;
+  font-size: var(--ok-font-size-base);
+  border-radius: var(--ok-border-radius-base);
+
+  &:hover,
+  &:focus {
+    color: var(--ok-button-hover-text-color);
+    border-color: var(--ok-button-hover-border-color);
+    background-color: var(--ok-button-hover-bg-color);
+    outline: none;
+  }
+  &:active {
+    color: var(--ok-button-active-text-color);
+    border-color: var(--ok-button-active-border-color);
+    background-color: var(--ok-button-active-bg-color);
+    outline: none;
+  }
+  // 圆角样式
+  &.is-round {
+    border-radius: var(--ok-border-radius-round);
+  }
+
+  // 禁用样式
+  &.is-disabled,
+  &.is-disabled:hover,
+  &.is-disabled:focus,
+  &[disabled],
+  &[disabled]:hover,
+  &[disabled]:focus {
+    cursor: not-allowed;
+    background-image: none;
+    color: var(--ok-button-disabled-text-color);
+    background-color: var(--ok-button-disabled-bg-color);
+    border-color: var(--ok-button-disabled-border-color);
+  }
+
+  // 圆形按钮样式
+  &.is-cricle {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    @apply flex items-center justify-center;
+  }
+  // 块级样式
+  &.is-block {
+    display: block;
+    width: 100%;
+  }
+
+  [class*='ok-icon'] + span {
+    margin-left: 10px;
+    position: relative;
+    bottom: 2px;
+  }
+}
+
+@each $val in primary, success, warning, info, danger {
+  // 这是一种非常灵活的方式，通过挂上去一些类，改变 CSS 变量所对应的值
+  .ok-button--#{$val} {
+    --ok-button-text-color: var(--ok-color-white);
+    --ok-button-bg-color: var(--ok-color-#{$val});
+    --ok-button-border-color: var(--ok-color-#{$val});
+    --ok-button-outline-color: var(--ok-color-#{$val}-light-5);
+    --ok-button-active-color: var(--ok-color-#{$val}-dark-2);
+    --ok-button-hover-text-color: var(--ok-color-white);
+    --ok-button-hover-bg-color: var(--ok-color-#{$val}-light-3);
+    --ok-button-hover-border-color: var(--ok-color-#{$val}-light-3);
+    --ok-button-active-bg-color: var(--ok-color-#{$val}-dark-2);
+    --ok-button-active-border-color: var(--ok-color-#{$val}-dark-2);
+    --ok-button-disabled-text-color: var(--ok-color-white);
+    --ok-button-disabled-bg-color: var(--ok-color-#{$val}-light-5);
+    --ok-button-disabled-border-color: var(--ok-color-#{$val}-light-5);
+  }
+  // 如果挂了 is-plain 这个，那么同样是改变一些 CSS 变量的值
+  .ok-button--#{$val}.is-plain {
+    --ok-button-text-color: var(--ok-color-#{$val});
+    --ok-button-bg-color: var(--ok-color-#{$val}-light-9);
+    --ok-button-border-color: var(--ok-color-#{$val}-light-5);
+    --ok-button-hover-text-color: var(--ok-color-white);
+    --ok-button-hover-bg-color: var(--ok-color-#{$val});
+    --ok-button-hover-border-color: var(--ok-color-#{$val});
+    --ok-button-active-text-color: var(--ok-color-white);
+  }
+}
+
+// 针对 ok-button-large 以及 ok-button-small 书写相应的样式即可
+.ok-button--large {
+  --ok-button-size: 50px;
+  height: var(--ok-button-size);
+  padding: 12px 19px;
+  font-size: var(--ok-font-size-base);
+  border-radius: var(--ok-border-radius-base);
+}
+.ok-button--small {
+  --ok-button-size: 24px;
+  height: var(--ok-button-size);
+  padding: 5px 11px;
+  font-size: 12px;
+  border-radius: calc(var(--ok-border-radius-base) - 1px);
 }

@@ -1,0 +1,13 @@
+// @import '../../../styles/variable.scss';
+@use './button-config.scss';
+@import './button-base.scss';
+
+.s-btn {
+  @include button-base;
+  // 导入type相关的样式
+  @include button-variant(button-config.$type);
+  // 导入 size 的相关样式
+  @include button-variant(button-config.$size);
+  // 导入hover 的相关样式
+  @include button-variant(button-config.$pseudo, true);
+}

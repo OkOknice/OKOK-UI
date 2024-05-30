@@ -48,26 +48,22 @@
       <OK-Icons icon="folder" size="xl" spin spin-reverse />
       <OK-Icons icon="folder-open" size="xl" spin-pulse />
     </div>
+    <h1 class="row-title">自定义属性和颜色</h1>
+    <div class="row">
+      <OK-Icons icon="user" size="xl" type="primary" />
+      <OK-Icons icon="user-secret" size="xl" type="success" />
+      <OK-Icons icon="bars" size="xl" type="warning" />
+      <OK-Icons icon="shield-halved" size="xl" type="danger" />
+      <OK-Icons icon="file" size="xl" type="info" />
+      <OK-Icons icon="gear" size="xl" type="success" />
+      <OK-Icons icon="folder" size="xl" color="skyblue" />
+      <OK-Icons icon="folder-open" size="xl" color="#fc0" />
+    </div>
   </div>
 </template>
 
 <script setup>
-import { OKIcons } from '../packages/icons'
+// import { OKIcons } from '../packages/icons'
 </script>
 
-<style lang="scss" scoped>
-.row {
-  width: 800px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: flex-start;
-  margin: 20px auto;
-  margin-bottom: 30px;
-}
-
-.row-title {
-  font-weight: 200;
-  text-align: center;
-  user-select: none;
-}
-</style>
+<style lang="scss" scoped></style>

@@ -9,9 +9,83 @@ $colors: (
   info: #909399,
 );
 
-// 全局加入主题颜色
 :root {
-  @each $var, $value in $colors {
-    --ok--color--#{$var}: #{$value};
+  // 接下来我们需要生成主题色和不同亮度的颜色
+  @each $val, $color in $colors {
+    // 生成主题颜色
+    --ok-color-#{$val}: #{$color};
+    // 还需要生成不同亮度的颜色
+    @for $i from 1 through 4 {
+      --ok-color-#{$val}-light-#{2 * $i + 1}: #{mix(
+          #fff,
+          $color,
+          ((2 * $i + 1) * 10 * 1%)
+        )};
+    }
+    // dark2 和 light8 因为不符合上面的规律，我们在下面单独来生成
+    --ok-color-#{$val}-light-8: #{mix(#fff, $color, 80 * 1%)}; // 80% 亮度
+    --ok-color-#{$val}-dark-2: #{mix(
+        #000,
+        $color,
+        20 * 1%
+      )}; // 注意，dark是和黑色进行混合，20% 亮度
   }
+
+  // 接下来，还有一些其他的颜色变量
+  // 对应的是 ElementUI 里面的中性色
+  --ok-color-white: #fff;
+  --ok-color-black: #000;
+  --ok-bg-color: #ffffff;
+  --ok-bg-color-page: #f2f3f5;
+  --ok-bg-color-overlay: #ffffff;
+  --ok-text-color-primary: #303133;
+  --ok-text-color-regular: #606266;
+  --ok-text-color-secondary: #909399;
+  --ok-text-color-placeholder: #a8abb2;
+  --ok-text-color-disabled: #c0c4cc;
+  --ok-border-color: #dcdfe6;
+  --ok-border-color-light: #e4e7ed;
+  --ok-border-color-lighter: #ebeef5;
+  --ok-border-color-extra-light: #f2f6fc;
+  --ok-border-color-dark: #d4d7de;
+  --ok-border-color-darker: #cdd0d6;
+  --ok-fill-color: #f0f2f5;
+  --ok-fill-color-light: #f5f7fa;
+  --ok-fill-color-lighter: #fafafa;
+  --ok-fill-color-extra-light: #fafcff;
+  --ok-fill-color-dark: #ebedf0;
+  --ok-fill-color-darker: #e6e8eb;
+  --ok-fill-color-blank: #ffffff;
+
+  // 和 border 相关的变量
+  --ok-border-width: 1px;
+  --ok-border-style: solid;
+  --ok-border-color-hover: var(--ok-text-color-disabled);
+  --ok-border: var(--ok-border-width) var(--ok-border-style)
+    var(--ok-border-color);
+  --ok-border-radius-base: 4px;
+  --ok-border-radius-small: 2px;
+  --ok-border-radius-round: 20px;
+  --ok-border-radius-circle: 100%;
+
+  // 和 font 相关的变量
+  --ok-font-size-extra-large: 20px;
+  --ok-font-size-large: 18px;
+  --ok-font-size-medium: 16px;
+  --ok-font-size-base: 14px;
+  --ok-font-size-small: 13px;
+  --ok-font-size-extra-small: 12px;
+  --ok-font-family: 'Helvetica Neue', Helvetica, 'PingFang SC',
+    'Hiragino Sans GB', 'Microsoft YaHei', '\5fae\8f6f\96c5\9ed1', Arial,
+    sans-serif;
+  --ok-font-weight-primary: 500;
+
+  // 和 disabled 相关的变量
+  --ok-disabled-bg-color: var(--ok-fill-color-light);
+  --ok-disabled-text-color: var(--ok-text-color-placeholder);
+  --ok-disabled-border-color: var(--ok-border-color-light);
+
+  // 和 transition 过渡相关的变量
+  --ok-transition-duration: 0.3s;
+  --ok-transition-duration-fast: 0.2s;
 }

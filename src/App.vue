@@ -2,7 +2,7 @@
 
 <template>
   <div class="app-wrrapper">
-    <div class="top">OKOK-UI 效果展示</div>
+    <div class="top">OKOK-UI 组件库效果展示</div>
     <div class="route">
       <router-link to="/icon">Icon</router-link>
       <router-link to="/button">Button</router-link>
@@ -17,20 +17,17 @@
     </div>
     <div class="ui-area">
       <router-view />
-      <!-- <div class="area">
-        
-      </div> -->
     </div>
   </div>
 </template>
 
-<style lang="scss" scoped>
+<style lang="scss">
 .app-wrrapper {
   .top {
     font-size: 24px;
     color: #b4abab;
     text-align: center;
-    @apply mt-[20px];
+    @apply mt-[15px];
   }
 
   .route {
@@ -42,13 +39,6 @@
 
   .ui-area {
     margin-top: 2em;
-
-    /* .area {
-      margin: 0 auto;
-      width: 87%;
-    } */
-    /* padding: 0 50px; */
-    /* text-align: center; */
   }
   a {
     color: #409eff;
@@ -56,5 +46,20 @@
   .active {
     border-bottom: 3px solid hsla(160, 100%, 37%, 1);
   }
+}
+.row {
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px auto;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
+
+.row-title {
+  font-weight: 200;
+  text-align: center;
+  user-select: none;
 }
 </style>

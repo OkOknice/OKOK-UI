@@ -1,4 +1,6 @@
-import { ExtractPropTypes } from 'vue'
+import { ExtractPropTypes, PropType } from 'vue'
+
+export type IconType = 'primary' | 'info' | 'success' | 'warning' | 'danger'
 
 export const IconsPropTypes = {
   // 图标
@@ -30,6 +32,14 @@ export const IconsPropTypes = {
   spin: Boolean,
   'spin-reverse': Boolean,
   'spin-pulse': Boolean,
+  type: {
+    type: String as PropType<IconType>,
+    default: '',
+  },
+  color: {
+    type: String,
+    default: '',
+  },
 }
 
 export type IconProps = ExtractPropTypes<typeof IconsPropTypes>

@@ -5,10 +5,11 @@ export default defineComponent({
   name: 'OKIcons',
   props: IconsPropTypes,
   setup(props: IconProps) {
-    const { icon, size, rotation, flip, beat, bounce } = toRefs(props)
+    const { icon, size, rotation, flip, beat, bounce, type, color, spin } =
+      toRefs(props)
     return () => {
       return (
-        <div>
+        <div class={['ok-icon', `ok-icon--${type.value}`]}>
           <font-awesome-icon
             size={size.value}
             flip={flip?.value}
@@ -16,6 +17,8 @@ export default defineComponent({
             icon={['fas', `${icon.value}`]}
             beat={beat.value}
             bounce={bounce.value}
+            color={color.value}
+            spin={spin.value}
           />
         </div>
       )
