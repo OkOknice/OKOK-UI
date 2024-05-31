@@ -1,0 +1,75 @@
+.ok-dialog_wrapper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  overflow: auto;
+  margin: 0;
+  z-index: 2001;
+  background-color: rgba(0, 0, 0, 0.5);
+  transition: all 0.3s;
+  .ok-dialog {
+    position: relative;
+    margin: 15vh auto 50px;
+    background: #fff;
+    border-radius: 2px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.3);
+    box-sizing: border-box;
+    width: 600px;
+    transition: all 0.3s;
+    &_header {
+      padding: 20px 20px 10px;
+      // @apply flex justify-between items-center;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      .ok-dialog_title {
+        line-height: 24px;
+        font-size: 18px;
+        color: #303133;
+      }
+    }
+    &_body {
+      padding: 30px 20px;
+      color: var(--ok-text-color-regular);
+      font-size: 14px;
+      word-break: break-all;
+    }
+    &_footer {
+      padding: 10px 20px 20px;
+      text-align: right;
+      box-sizing: border-box;
+    }
+  }
+}
+
+.dialog-enter-active {
+  animation: fade-active 0.5s;
+}
+
+.dialog-leave-active {
+  animation: fade 0.5s;
+}
+
+@keyframes fade-active {
+  0% {
+    display: none;
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+    display: block;
+  }
+}
+
+@keyframes fade {
+  0% {
+    opacity: 1;
+    display: block;
+  }
+  100% {
+    opacity: 0;
+    display: none;
+  }
+}

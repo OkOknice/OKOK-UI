@@ -47,6 +47,16 @@ const router = createRouter({
       name: 'dropdown',
       component: () => import('../views/DropdownView.vue'),
     },
+    {
+      path: '/tabs',
+      name: 'tabs',
+      component: () => import('../views/TabsView.vue'),
+    },
+    {
+      path: '/tree',
+      name: 'tree',
+      component: () => import('../views/TreeView.vue'),
+    },
   ],
   linkActiveClass: 'active',
 })

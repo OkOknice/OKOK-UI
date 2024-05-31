@@ -1,0 +1,35 @@
+.ok-card {
+  width: 270px;
+  border-radius: 8px;
+  background: #fff;
+  overflow: hidden;
+  box-shadow: 0 6px 10px 0 rgba(95, 101, 105, 0.15);
+  padding-bottom: 8px;
+
+  &-img {
+    height: 152px;
+    margin-bottom: 8px;
+
+    img {
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-summary {
+    padding: 0 8px;
+    text-align: left;
+    font-size: 14px;
+    color: #545c63;
+    line-height: 20px;
+    height: 40px;
+    margin-bottom: 8px;
+  }
+
+  &-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 8px;
+  }
+}

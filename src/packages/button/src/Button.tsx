@@ -17,10 +17,14 @@ export default defineComponent({
       block,
       attrType,
     } = toRefs(props)
+    // 获取实例
     const _ref = ref(null)
+    // 内部点击方法
     const btnClick = () => {
       console.log('btnClick')
     }
+
+    // 暴露方法
     expose({
       btnClick,
       ref: _ref,
