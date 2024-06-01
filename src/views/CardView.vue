@@ -3,10 +3,10 @@
     <div class="row-title">第一组卡片显示</div>
     <div class="row">
       <OK-Card
-        img-src="/public/vite.svg"
+        img-src="/vite.svg"
         summary="前端主流布局系统进阶与实战，轻松解决页面布局难题"
       />
-      <OK-Card img-src="/public/vite.svg" :img-height="100">
+      <OK-Card img-src="/vite.svg" :img-height="100">
         <template #summary>
           <div>前端主流布局系统进阶与实战，轻松解决页面布局难题</div>
         </template>
@@ -21,7 +21,7 @@
     <div class="row-title">第二组卡片显示</div>
     <div class="row">
       <OK-Card
-        img-src="/public/vite.svg"
+        img-src="/vite.svg"
         summary="前端主流布局系统进阶与实战，轻松解决页面布局难题"
       >
         <template #footer>

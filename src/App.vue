@@ -20,8 +20,25 @@
     </div>
   </div>
 </template>
+<style>
+.row {
+  width: 800px;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  margin: 20px auto;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+}
 
-<style lang="scss">
+.row-title {
+  font-weight: 200;
+  text-align: center;
+  user-select: none;
+}
+</style>
+
+<style lang="scss" scoped>
 .app-wrrapper {
   .top {
     font-size: 24px;
@@ -46,20 +63,5 @@
   .active {
     border-bottom: 3px solid hsla(160, 100%, 37%, 1);
   }
-}
-.row {
-  width: 800px;
-  display: flex;
-  justify-content: space-evenly;
-  align-items: center;
-  margin: 20px auto;
-  margin-bottom: 30px;
-  flex-wrap: wrap;
-}
-
-.row-title {
-  font-weight: 200;
-  text-align: center;
-  user-select: none;
 }
 </style>

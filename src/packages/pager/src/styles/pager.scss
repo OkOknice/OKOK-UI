@@ -1,0 +1,38 @@
+.ok-pager {
+  --ok-pager-theme-color: var(--ok-color-primary);
+  --ok-pager-size: 34px;
+  --ok-pager-padding: 0 12px;
+  --ok-pager-font-size: var(--ok-font-size-base);
+}
+
+.ok-pager {
+  a {
+    border: 1px solid #e1e2e3;
+    background-color: #f0f2f5;
+    color: #303133;
+    height: var(--ok-pager-size);
+    display: inline-block;
+    line-height: var(--ok-pager-size);
+    border-radius: 2px;
+    padding: var(--ok-pager-padding);
+    margin: 8px;
+    font-size: var(--ok-pager-font-size);
+    cursor: pointer;
+    user-select: none;
+    &:hover {
+      color: var(--ok-pager-theme-color);
+    }
+    /* 当前页会挂上 active 类 */
+    &.active {
+      //   border: none;
+      color: #fff;
+      background-color: var(--ok-pager-theme-color);
+      border-color: var(--ok-pager-theme-color);
+    }
+    /* a 标签禁用的时候会挂上 disabled 类 */
+    &.disabled {
+      color: #ccc;
+      cursor: not-allowed;
+    }
+  }
+}
