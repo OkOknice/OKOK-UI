@@ -36,3 +36,21 @@
     }
   }
 }
+
+@each $val in primary, success, warning, danger, info {
+  .ok-pager--#{$val} {
+    --ok-pager-theme-color: var(--ok-color-#{$val});
+  }
+}
+
+.ok-pager--small {
+  --ok-pager-size: 25px;
+  --ok-pager-padding: 0 8px;
+  --ok-pager-font-size: var(--ok-font-size-small);
+}
+
+.ok-pager--large {
+  --ok-pager-size: 44px;
+  --ok-pager-padding: 0 16px;
+  --ok-pager-font-size: var(--ok-font-size-large);
+}

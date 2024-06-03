@@ -20,7 +20,7 @@ export const PagerProps = {
   },
   type: {
     type: String,
-    default: 'info',
+    default: 'primary',
   },
   size: {
     type: String as PropType<pageSize>,

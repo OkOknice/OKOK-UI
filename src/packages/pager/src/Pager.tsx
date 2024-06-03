@@ -4,24 +4,24 @@ import { PagerPropsType, PagerProps } from './types/pager-type'
 export default defineComponent({
   name: 'Pager',
   props: PagerProps,
-  emits: ['current-page'],
+  emits: ['update:page'],
   setup(props: PagerPropsType, { emit }) {
-    const { total, currentPage, pageSize } = toRefs(props)
+    const { total, currentPage, pageSize, type, size } = toRefs(props)
 
     // 页码点击
     const pageClick = (page: number) => {
-      emit('current-page', page)
+      emit('update:page', page)
     }
     // 上一页点击
     const prevClick = () => {
       if (currentPage.value > 1) {
-        emit('current-page', currentPage.value - 1)
+        emit('update:page', currentPage.value - 1)
       }
     }
     // 下一页点击
     const nextClick = () => {
       if (currentPage.value < total.value) {
-        emit('current-page', currentPage.value + 1)
+        emit('update:page', currentPage.value + 1)
       }
     }
 
@@ -101,7 +101,13 @@ export default defineComponent({
 
     return () => {
       return (
-        <div className="ok-pager">
+        <div
+          class={{
+            ['ok-pager']: true,
+            [`ok-pager--${type.value}`]: type.value,
+            [`ok-pager--${size.value}`]: size.value,
+          }}
+        >
           {/* 首页和上一页布局 */}
           <a
             className={currentPage.value === 1 ? 'disabled' : ''}
