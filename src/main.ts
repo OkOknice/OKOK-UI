@@ -14,6 +14,9 @@ import { fas } from '@fortawesome/free-solid-svg-icons'
 // 引入 OKOK-UI 组件库
 import OKOKUI from './okok-ui'
 
+let a: number = 123
+a = 456
+
 const app = createApp(App)
 /* add icons to the library */
 library.add(fas)

@@ -2,6 +2,8 @@
   <div>TabsView</div>
 </template>
 
-<script setup></script>
+<script setup lang="ts">
+import { ref } from 'vue'
+</script>
 
 <style lang="scss" scoped></style>
