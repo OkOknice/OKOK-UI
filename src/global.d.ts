@@ -3,6 +3,7 @@ import { OKIcons } from './packages/icons'
 import { OKCard } from './packages/card'
 import { OKDialog } from './packages/dialog'
 import { OKPager } from './packages/pager'
+import { OKCollapse, OKCollaspseItem } from './packages/collapse'
 
 declare module 'vue' {
   export interface GlobalComponents {
@@ -11,7 +12,9 @@ declare module 'vue' {
     OKCard: typeof OKCard
     OKDialog: typeof OKDialog
     OKPager: typeof OKPager
+    OKCollapse: typeof OKCollapse
+    OKCollaspseItem: typeof OKCollaspseItem
   }
 }
 
-export {}
+export { }

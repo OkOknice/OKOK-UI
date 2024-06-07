@@ -1,0 +1,76 @@
+.ok-collapse {
+  --ok-collapse-border-color: var(--ok-border-color-light);
+  --ok-collapse-header-height: 48px;
+  --ok-collapse-header-bg-color: var(--ok-fill-color-blank);
+  --ok-collapse-header-text-color: var(--ok-text-color-primary);
+  --ok-collapse-header-font-size: 13px;
+  --ok-collapse-content-bg-color: var(--ok-fill-color-blank);
+  --ok-collapse-content-font-size: 13px;
+  --ok-collapse-content-text-color: var(--ok-text-color-primary);
+  --ok-collapse-disabled-text-color: var(--ok-disabled-text-color);
+  --ok-collapse-disabled-border-color: var(--ok-border-color-lighter);
+  border-top: 1px solid var(--ok-collapse-border-color);
+  width: 100%;
+}
+.ok-collapse-item__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: var(--ok-collapse-header-height);
+  line-height: var(--ok-collapse-header-height);
+  background-color: var(--ok-collapse-header-bg-color);
+  color: var(--ok-collapse-header-text-color);
+  cursor: pointer;
+  font-size: var(--ok-collapse-header-font-size);
+  font-weight: 500;
+  transition: border-bottom-color var(--ok-transition-duration);
+  outline: none;
+  border-bottom: 1px solid var(--ok-collapse-border-color);
+  &.is-disabled {
+    color: var(--ok-collapse-disabled-text-color);
+    cursor: not-allowed;
+    background-image: none;
+  }
+  &.is-active {
+    border-bottom-color: transparent;
+    .header-angle {
+      transform: rotate(90deg);
+    }
+  }
+  .header-angle {
+    transition: transform var(--ok-transition-duration);
+  }
+}
+
+// .ok-collapse-item__content__wrap {
+//   transition: all 0.5s;
+// }
+.ok-collapse-item__content {
+  will-change: height;
+  background-color: var(--ok-collapse-content-bg-color);
+  overflow: hidden;
+  box-sizing: border-box;
+  font-size: var(--ok-collapse-content-font-size);
+  color: var(--ok-collapse-content-text-color);
+  border-bottom: 1px solid var(--ok-collapse-border-color);
+  padding-bottom: 25px;
+  transition: all var(--ok-transition-duration);
+}
+
+.ok-collapse-item__content__hidden {
+  height: 0;
+  padding: 0;
+  opacity: 0;
+  border-bottom: none;
+}
+.ok-collapse-item__content__show {
+  height: height;
+  padding-bottom: 25px;
+  opacity: 1;
+  border-bottom: 1px solid var(--ok-collapse-border-color);
+}
+
+.slide-enter-active,
+.slide-leave-active {
+  transition: height var(--ok-transition-duration);
+}
