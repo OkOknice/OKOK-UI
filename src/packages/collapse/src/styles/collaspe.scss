@@ -26,6 +26,7 @@
   transition: border-bottom-color var(--ok-transition-duration);
   outline: none;
   border-bottom: 1px solid var(--ok-collapse-border-color);
+  user-select: none;
   &.is-disabled {
     color: var(--ok-collapse-disabled-text-color);
     cursor: not-allowed;

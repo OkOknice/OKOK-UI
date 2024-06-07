@@ -1,29 +1,29 @@
-import { ExtractPropTypes } from "vue"
+import { ExtractPropTypes } from 'vue'
 
 export const collapseProps = {
   modelValue: {
     type: Array,
-    default: []
+    default: [],
   },
   accordion: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 }
 
 export const collapseItemProps = {
   title: {
     type: String,
-    default: ''
+    default: '',
   },
   name: {
     type: [String, Number],
-    default: ''
+    default: '',
   },
   disabled: {
     type: Boolean,
-    default: false
-  }
+    default: false,
+  },
 }
 
 export const collapseKey = Symbol('collapseKey')
